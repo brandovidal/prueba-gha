@@ -1,17 +1,16 @@
+name: Publish Docker image
 on:
   push:
     branches: main
   pull_request:
     branches: main
 
-name: Publish Docker image
-
 jobs:
   push_to_registry:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
-    - name: Check out the repo
+    - name: Checkout the repo
       uses: actions/checkout@v2
     - name: use github variables
       run: echo '${{ github.repository }} AND ${{ github.sha }}'

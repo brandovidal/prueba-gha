@@ -19,11 +19,11 @@ jobs:
     -
       name: build and push to docker
       id: docker_build
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v1
       with:
-        # repository: ${{ github.repository }}
-        context: ./
-        file: ./Dockerfile
+        registry: docker.pkg.github.com
+        repository: ${{ github.repository }}
+        #file: ./Dockerfile
         tag_with_ref: true
         tag_with_sha: true
         tags: ${{ github.sha }}

@@ -23,3 +23,12 @@ jobs:
         tag_with_ref: true
         tag_with_sha: true
         tags: ${{ github.sha }}
+    - name: ls of linode container
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.LINODE_HOST }}
+        username: ${{ secrets.LINODE_USERNAME }}
+        key: ${{ secrets.LINODE_SSHKEY }}
+        port: ${{ secrets.LINODE_PORT }}
+        script: |
+          ls -l

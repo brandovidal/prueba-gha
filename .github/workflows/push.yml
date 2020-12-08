@@ -28,7 +28,9 @@ jobs:
       with:
         host: ${{ secrets.LINODE_HOST }}
         username: ${{ secrets.LINODE_USERNAME }}
-        key: ${{ secrets.LINODE_SSHKEY }}
+        # key: ${{ secrets.LINODE_SSHKEY }}
+        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.LINODE_PORT }}
         script: |
+          whoami
           ls -l

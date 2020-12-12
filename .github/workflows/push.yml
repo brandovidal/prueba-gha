@@ -24,12 +24,14 @@ jobs:
         tag_with_sha: true
         tags: ${{ github.sha }}
         
-    - name: send custom message with args
+    - name: Send custom message to Telegram
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        args: The ${{ github.event_name }} event triggered first step.
+        message: |  #https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context
+          ${{ github.event_name }} commit in ${{ github.repository }} by "${{ github.actor }}". [${{github.sha}}@${{ github.ref }}]
+          
     - name: ls of linode container
       uses: appleboy/ssh-action@master
       with:

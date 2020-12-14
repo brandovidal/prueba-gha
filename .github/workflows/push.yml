@@ -33,7 +33,7 @@ jobs:
           ${{ github.event_name }} commit in ${{ github.repository }} by "${{ github.actor }}". [${{github.sha}}@${{ github.ref }}]
           
     - name: Run Discord Webhook
-      uses: Mist3r-Robot/discord-webhook@master
+      uses: Mist3r-Robot/classic-discord-webhook@master
       with:
         id: ${{ secrets.DISCORD_WEBHOOK_ID }}
         token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
